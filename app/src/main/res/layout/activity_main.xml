@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBar"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:fitsSystemWindows="true"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/collapsingToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            app:contentScrim="?attr/colorPrimary"
+            app:expandedTitleMarginEnd="56dp"
+            app:expandedTitleMarginStart="40dp"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:title="The Batman!"
+            app:titleEnabled="true"> <!--Change to false to see title and subtitle-->
+
+            <ImageView
+                android:id="@+id/toolbarImage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/app_name"
+                android:fitsSystemWindows="true"
+                app:srcCompat="@drawable/batman"
+                app:layout_collapseMode="parallax" />
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_collapseMode="pin"
+                app:subtitle="@string/app_name"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="?attr/actionBarSize">
+
+
+            <TextView
+                android:id="@+id/txtOverview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:text="The Google I/O 2015, Google introduced Coordinator Layout to remove the difficulties of having more than one layouts in FrameLayout. Now, by using CoordinatorLayout you can see how views can interact with each other in a particular layout. CoordinatorLayout controls the animation and transactions of various child elements with one another. We have seen various examples of CoordinatorLayout in the introduction section of the blog. After looking at the examples, one question that might come in your mind is that how the CoordinatorLayout knows what to do with the child present in CoordinatorLayout? Let’s try to find the answer.
+
+Behaviors
+Whenever a view is interacting with the other then it is done with the help of Behaviors. We create a particular behavior for a particular view and these behaviors are responsible for animations between the views. Some of the common Material Design behaviors are sliding drawers, swipe-dismissal, floating action button, a sticky button that stick on some other view. So, broadly these behaviors can be classified into two types:
+
+Layout-Based: Layout-Based behaviors are used to shift one view at some other place when you perform a certain task. For example, create a project in Android Studio with Basic Activity template. Now, run the application on your mobile. You will find a Floating Action Button on the screen. Just press the button and you will find a snackbar coming from the bottom of the screen. At the same time, you will notice that the Floating Action Button has moved upwards. After a few seconds the button will again come back to its original position.
+Scroll-Based: Scroll-Based behaviors are the most common use of Coordinator Layout. Remember the example of WhatsApp, that we discussed in the introduction section. When you scroll the profile or contact page in WhatsApp, then you will find that the profile image will be changed to ActionBar. So, these type of behaviors is called Scroll-Based behaviors.
+Coordinator Layout example
+In this section of the blog, we will look upon some of the examples of Coordinator Layout. Firstly we will try to implement the Floating Action Bar in our application.
+
+Implementing Layout-Based Behavior
+Let’s create an Android Project in Android Studio using the Blank Activity template. If you are not using a Blank Activity then you can create an Empty Activity and use the code used in the blog. If you have used the Blank Activity template then you can run your app to see the use of Coordinator Layout otherwise you can follow the below steps after creating an Empty Activity.
+
+After creating a project, our first step is to add the design dependency in our app level build.gradle file (if not added).
+After adding the dependency, you have to add one layout file i.e. at this step you will be having two layout files. First layout file will be used to display the contents of MainActivity and the second layout file will be used to define CoordinatorLayout and handle the animations and transactions of the views in the Activity. So, following is the code for the content_main.xml file:"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="16dp"
+        android:background="@color/colorAccent"
+        android:tint="#fff"
+        app:srcCompat="@android:drawable/ic_menu_share"/>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
